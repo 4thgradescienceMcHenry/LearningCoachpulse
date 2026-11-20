@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Family Feedback · 4th Grade Science</title>
+<title>Family Feedback · 4th Grade</title>
 <style>
 :root{--p:#5B2A86;--p2:#7B3FB5;--p3:#EFE6F8;--ink:#1F1830;--mut:#6B6280;--ok:#2B8A3E;--ac:#F08C00}
 *{box-sizing:border-box}
@@ -77,8 +77,8 @@ footer a{color:var(--p)}
   </svg>
   <div>
    <h1>Family Feedback Hub</h1>
-   <p class="sub">4th Grade Science with Dr. McHenry · LAVCA</p>
-   <p class="sub" style="margin-top:8px">Ask a question, cheer on your scientist, or tell us how things are going. Every message is read!</p>
+   <p class="sub">4th Grade · LAVCA</p>
+   <p class="sub" style="margin-top:8px">Ask a question, cheer on your student, or tell us how things are going. Every message is read!</p>
   </div>
  </div>
  <svg class="wave" viewBox="0 0 1200 50" preserveAspectRatio="none"><path d="M0 30 Q300 0 600 26 T1200 20 V50 H0Z" fill="#fff"/></svg>
@@ -131,9 +131,9 @@ footer a{color:var(--p)}
 
    <!-- SHOUT-OUT -->
    <section class="panel" id="p-shoutout">
-    <h2>Shout-Out to My Scientist</h2>
+    <h2>Shout-Out to My Student</h2>
     <p class="lead">Brag about your child! Shout-outs may be shared with your student to celebrate their hard work.</p>
-    <label>I'm proud of my scientist for... <span class="req">*</span></label>
+    <label>I'm proud of my student for... <span class="req">*</span></label>
     <div class="chips">
      <input type="checkbox" name="proudOf" id="s1" value="Working hard"><label for="s1">Working hard</label>
      <input type="checkbox" name="proudOf" id="s2" value="Never giving up"><label for="s2">Never giving up</label>
@@ -150,7 +150,7 @@ footer a{color:var(--p)}
    <!-- PULSE -->
    <section class="panel" id="p-pulse">
     <h2>Family Pulse Check</h2>
-    <p class="lead">One minute, five quick questions. Your answers help me plan better lessons.</p>
+    <p class="lead">One minute, five quick questions. Your answers help plan better lessons.</p>
     <div id="scales"></div>
     <label>What would help your family most right now?</label>
     <div class="chips">
@@ -161,14 +161,14 @@ footer a{color:var(--p)}
      <input type="checkbox" name="helpWith" id="h5" value="LEAP test tips"><label for="h5">LEAP test tips</label>
      <input type="checkbox" name="helpWith" id="h6" value="A meeting with the teacher"><label for="h6">A meeting with the teacher</label>
     </div>
-    <label>Anything else you'd like me to know?</label>
+    <label>Anything else you'd like the teacher to know?</label>
     <textarea name="pulseComment" placeholder="Optional"></textarea>
    </section>
 
    <!-- FEEDBACK -->
    <section class="panel" id="p-feedback">
     <h2>Share Feedback</h2>
-    <p class="lead">Tell me about any part of 4th grade: lessons, the newsletter, communication, ideas, or concerns.</p>
+    <p class="lead">Share your thoughts on any part of 4th grade: lessons, the newsletter, communication, ideas, or concerns.</p>
     <label>This feedback is about <span class="req">*</span></label>
     <select name="feedbackArea" data-req="feedback">
      <option value="">Choose one</option><option>Science lessons</option><option>Live classes</option><option>Small groups</option><option>Homework and assignments</option><option>Book Club / Reading Quest</option><option>The newsletter</option><option>Communication from the teacher</option><option>An idea or suggestion</option><option>A concern</option><option>Something else</option>
@@ -181,24 +181,24 @@ footer a{color:var(--p)}
    </section>
 
    <div class="err" id="err">Please fill in the boxes marked with a red *.</div>
-   <button class="send" type="submit" id="btn">Send to Dr. McHenry 💜</button>
-   <p class="note">Your message goes privately to Dr. McHenry. Please don't include passwords or other private information.</p>
+   <button class="send" type="submit" id="btn">Send to the Teacher 💜</button>
+   <p class="note">Your message goes privately to the teacher. Please don't include passwords or other private information.</p>
   </form>
 
   <div class="thanks" id="thanks">
    <svg width="90" height="90" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#EBFBEE"/><path d="M28 52 l15 15 l30 -32" stroke="#2B8A3E" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
    <h2>Thank you!</h2>
-   <p id="thanksMsg">Your message was sent to Dr. McHenry.</p>
+   <p id="thanksMsg">Your message was sent to the teacher.</p>
    <button type="button" id="again">Send another message</button>
   </div>
  </div>
 </main>
-<footer>Need help right away? Email <a href="mailto:mmchenry@lavirtual.org">mmchenry@lavirtual.org</a></footer>
+<footer>Thank you for being part of our 4th grade family!</footer>
 
 <script>
 // Paste your Google Apps Script Web App URL between the quotes (see setup steps).
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxQXTEgHeNLnzgtpm8ijoBerqYqGU7SOUxNiLi5U370mC4yUEiRuWnSEAV8wJma-gFLdw/exec";
-const TEACHER_EMAIL = "mmchenry@lavirtual.org";
+const TEACHER_EMAIL = "";
 
 const SCALES=[
  ["confidence","How confident does your child feel in science?"],
@@ -259,9 +259,9 @@ form.onsubmit=async e=>{
    window.location.href=`mailto:${TEACHER_EMAIL}?subject=${encodeURIComponent('Family '+d.type+' - '+d.studentName)}&body=${encodeURIComponent(body)}`;
   }
   form.style.display='none'; document.getElementById('thanks').classList.add('on');
-  document.getElementById('thanksMsg').textContent = d.type==='Shout-Out' ? 'Your shout-out is on its way. Your scientist is lucky to have you cheering them on!' : 'Your message was sent to Dr. McHenry. Thank you for being part of our class!';
- }catch(x){err.style.display='block';err.textContent='Something went wrong. Please try again, or email '+TEACHER_EMAIL+'.'}
- btn.disabled=false; btn.textContent='Send to Dr. McHenry 💜';
+  document.getElementById('thanksMsg').textContent = d.type==='Shout-Out' ? 'Your shout-out is on its way. Your student is lucky to have you cheering them on!' : 'Your message was sent to the teacher. Thank you for being part of our class!';
+ }catch(x){err.style.display='block';err.textContent='Something went wrong. Please try again in a few minutes.'}
+ btn.disabled=false; btn.textContent='Send to the Teacher 💜';
 };
 document.getElementById('again').onclick=()=>{form.reset();form.style.display='';document.getElementById('thanks').classList.remove('on');window.scrollTo({top:0,behavior:'smooth'})};
 </script>
